@@ -1,0 +1,82 @@
+{
+  "name": "@repanxtenka/baileys",
+  "version": "1.5.2",
+  "description": "RepanXTEnka Baileys \u2014 native WhatsApp Web client foundation with Noise XX, binary-node wire, pairing, companion auth, Signal foundation, resilient lifecycle and Baileys-compatible primitives.",
+  "type": "module",
+  "main": "./src/index.cjs",
+  "module": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js",
+      "require": "./src/index.cjs",
+      "default": "./src/index.js"
+    },
+    "./doctor": {
+      "types": "./src/doctor.d.ts",
+      "import": "./src/doctor.js",
+      "require": "./src/doctor.cjs",
+      "default": "./src/doctor.js"
+    }
+  },
+  "bin": {
+    "baileys-doctor": "src/bin-doctor.cjs"
+  },
+  "files": [
+    "src",
+    "examples",
+    "assets",
+    "README.md",
+    "COMPATIBILITY.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "scripts/release-check.mjs",
+    "scripts/audit.mjs",
+    "AUDIT.md",
+    "OFFICIAL-CONNECTION.md"
+  ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "check": "find src test examples -type f \\( -name '*.js' -o -name '*.mjs' -o -name '*.cjs' \\) -print0 | xargs -0 -n1 node --check",
+    "test": "npm run check && node --test --test-concurrency=1 test/*.test.js",
+    "pack:check": "npm pack --dry-run",
+    "doctor": "node src/bin-doctor.cjs",
+    "release:check": "node scripts/release-check.mjs",
+    "test:parallel": "npm run check && node --test --test-concurrency=4 test/*.test.js",
+    "audit": "node scripts/audit.mjs",
+    "start": "node examples/start.mjs"
+  },
+  "keywords": [
+    "baileys",
+    "multi-device",
+    "pairing-code",
+    "qr",
+    "reconnect",
+    "repanoffcl",
+    "repanxtenka",
+    "session-recovery",
+    "whatsapp",
+    "whatsapp-web"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RepannnOffcl/BailsAing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RepannnOffcl/BailsAing/issues"
+  },
+  "homepage": "https://github.com/RepannnOffcl/BailsAing",
+  "dependencies": {
+    "qrcode-terminal": "0.12.0",
+    "chalk": "6.0.1",
+    "@whiskeysockets/baileys": "7.0.0-rc14"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

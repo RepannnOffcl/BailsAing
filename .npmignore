@@ -1,0 +1,5 @@
+test/
+.git/
+.github/
+.gitignore
+npm-debug.log*
